@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"github.com/gef3dx/api_workinghub/internal/bootstrap"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	fmt.Println(bootstrap.NewApp())
 }
