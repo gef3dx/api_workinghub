@@ -1,3 +1,4 @@
+// точка входа
 package main
 
 import (
