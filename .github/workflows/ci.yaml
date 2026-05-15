@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  GO_VERSION: "1.26"
+  GO_VERSION: "1.25"
 
 jobs:
   lint:
@@ -37,8 +37,8 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v6
         with:
-          version: latest
-          args: --timeout=5m ./...
+          version: v1.64.8
+          args: --timeout=5m -v ./...
 
       - name: Run go vet
         run: go vet ./...
