@@ -34,6 +34,8 @@ func getTestDB(t *testing.T) *gorm.DB {
 		t.Fatalf("failed to connect to test database: %v", err)
 	}
 
+	_ = db.AutoMigrate(&user.Model{})
+
 	return db
 }
 
