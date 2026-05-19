@@ -87,7 +87,7 @@ func readBody(t *testing.T, resp *http.Response) []byte {
 	if err != nil {
 		t.Fatalf("read body failed: %v", err)
 	}
-	resp.Body.Close()
+	_ = resp.Body.Close()
 	return buf.Bytes()
 }
 

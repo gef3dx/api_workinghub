@@ -80,11 +80,11 @@ func TestRepository_List(t *testing.T) {
 	require.NoError(t, err)
 	assert.Empty(t, users)
 
-	repo.Create(ctx, user.CreateInput{
+	_, _ = repo.Create(ctx, user.CreateInput{
 		Email: "first@example.com", Phone: "9094445566",
 		Name: "A", FirstName: "A", LastName: "A",
 	})
-	repo.Create(ctx, user.CreateInput{
+	_, _ = repo.Create(ctx, user.CreateInput{
 		Email: "second@example.com", Phone: "9094445566",
 		Name: "B", FirstName: "B", LastName: "B",
 	})
@@ -233,7 +233,7 @@ func TestRepository_Update_DuplicateEmail(t *testing.T) {
 	repo := user.NewRepository(db)
 	ctx := context.Background()
 
-	repo.Create(ctx, user.CreateInput{
+	_, _ = repo.Create(ctx, user.CreateInput{
 		Email: "existing@example.com", Phone: "9094445566",
 		Name: "Existing", FirstName: "Existing", LastName: "Existing",
 	})

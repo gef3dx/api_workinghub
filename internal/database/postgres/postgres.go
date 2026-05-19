@@ -122,7 +122,7 @@ func ensureDatabaseExists(cfg config.PostgresConfig) error {
 	if err != nil {
 		return fmt.Errorf("open maintenance connection: %w", err)
 	}
-	defer adminDB.Close()
+	defer func() { _ = adminDB.Close() }()
 
 	// Сначала убеждаемся, что сервер PostgreSQL в целом доступен.
 	if err := pingWithRetry(adminDB, cfg); err != nil {
