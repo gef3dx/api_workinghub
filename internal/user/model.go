@@ -6,7 +6,7 @@ import "time"
 // Model описывает запись пользователя в таблице users и формат ответа API.
 type Model struct {
 	ID        int64     `json:"id"`
-	Email     string    `json:"email"`
+	Email     string    `json:"email" gorm:"unique"`
 	Phone     string    `json:"phone"`
 	Name      string    `json:"name"`
 	FirstName string    `json:"first_name"`
